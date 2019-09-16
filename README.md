@@ -22,9 +22,7 @@ Implement the following sorting algorithms and compare them. You can use any pro
 
 **Grading Scheme:**
 
-![alt text][grading_scheme]
-
-[grading_scheme]: https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/Rubrics.png
+![image for project_1 grading scheme](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_1/resource/Rubrics.png)
 
 **Submission instructions:**
 
