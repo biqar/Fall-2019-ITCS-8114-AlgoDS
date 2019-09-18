@@ -47,7 +47,7 @@ const int inf = (1<<28);
 const int MAX = 50005;
 
 int heap[MAX];
-int sorted_arr[MAX];
+int input_arr[MAX];
 int n;
 
 void heap_insert(int key, int pos) {
@@ -88,19 +88,24 @@ int heap_remove_min() {
 }
 
 int main() {
-	freopen("input/in_50k.txt", "r", stdin);
-	freopen("output/out_hs_50k.txt", "w", stdout);
+    //freopen("input/in_50k.txt", "r", stdin);
+    //freopen("out.txt", "w", stdout);
 
-	int i, j, k;
-	int test, t = 0, kase=0;
-	int key, _n;
+    int i, j, k;
+    int test, t = 0, kase=0;
+    int key, _n;
 
-	scanf("%d", &n);
-	_n = n;
-	//printf("%d\n", n);
+    scanf("%d", &n);
+    _n = n;
+    //printf("%d\n", n);
     for(i=1; i<=_n; i+=1) {
-        scanf("%d", &key);
-        heap_insert(key, i);
+        scanf("%d", &input_arr[i]);
+    }
+
+    double st=clock();
+
+    for(i=1; i<=_n; i+=1) {
+        heap_insert(input_arr[i], i);
     }
 
     for(i=0; i<_n; i+=1) {
@@ -108,6 +113,7 @@ int main() {
         printf("%d\n", heap_remove_min());
     }
     //printf("\n");
+    cerr << (clock()-st)/CLOCKS_PER_SEC << endl;
 
-	return 0;
+    return 0;
 }
