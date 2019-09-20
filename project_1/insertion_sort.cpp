@@ -48,15 +48,11 @@ const double pi = acos(-1.0);
 const double eps = 1e-9;
 const int inf = (1 << 28);
 const int MAX = 1005;
+int* ioArray = NULL;
 
-
-int * insertionSort(int* ip, int n) {
+int insertionSort(int n, int start, int end) {
     int i,j,k;
-    int* ioArray = new int[n];
-    for(int i=0; i<n; i++){
-        ioArray[i]=*(ip+i);
-    }
-    for(j=1; j<n; j++){
+    for(j=start+1; j<end; j++){
         k=ioArray[j];
         i=j-1;
         while(i>=0 && ioArray[i]>k){
@@ -65,9 +61,8 @@ int * insertionSort(int* ip, int n) {
         }
         ioArray[i+1]=k;
     }
-    return ioArray;
+    return 0;
 }
-
 
 int main() {
     //freopen("in.txt", "r", stdin);
@@ -79,13 +74,10 @@ int main() {
     //load input after this line
     int x, n;
     ifstream inFile;
-    int* ioArray = NULL;
     inFile.open("input\\random\\in_5k.txt"); // put the input file path here
     if (!inFile){
         cerr<< "Error!"<<endl;
         exit(1);
-    }else{
-        //
     }
     int index=0;
     while (inFile >> x){
@@ -100,13 +92,15 @@ int main() {
     inFile.close();
     //note: implement your algorithm here ... execution time will be printed automatically!
     double st = clock();
-    int* op = insertionSort(ioArray, n);
+    int start =0;
+    int end = n;
+    insertionSort(n, start, end);
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
     // load output here
     ofstream outfile ("output\\insertion_sort\\out_5k.txt");
     if (outfile.is_open()){
         for(i=0; i < n; i++){
-            outfile << *(op+i) << endl ;
+            outfile << ioArray[i] << endl ;
         }
         outfile.close();
     }
