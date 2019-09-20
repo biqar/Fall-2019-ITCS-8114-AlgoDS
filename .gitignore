@@ -22,6 +22,10 @@
 *.la
 *.lo
 
+# Custom input files
+project_1/input/random/in_custom.txt
+project_1/output/insertion_sort/out_custom.txt
+
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so
@@ -53,3 +57,4 @@ dkms.conf
 
 # ide specific settings
 .idea
+
