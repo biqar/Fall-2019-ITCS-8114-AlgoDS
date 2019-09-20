@@ -49,33 +49,44 @@ const int MAX = 50005;
 int n;
 int input_arr[MAX];
 
+int median_of_three(int a, int b, int c) {
+    if((b <= a && a <= c) || (c <= a && a <= b)) return a;
+    if((a <= b && b <= c) || (c <= b && b <= a)) return b;
+    return c;
+}
+
 int get_pivot(int left, int right) {
-    return input_arr[left];
+    int mid = (left + right) / 2;
+    return median_of_three(input_arr[left], input_arr[mid], input_arr[right]);
 }
 
 void inplace_quick_sort(int left, int right) {
     //base case
-    if(left >= right) return;
+    if(left+10 <= right) {
+        int pivot = get_pivot(left, right);
+        int i = left, j = right;
 
-    int pivot = get_pivot(left, right);
-    int i = left, j = right;
-
-    while(true) {
-        while(input_arr[i] < pivot) i+=1;
-        while(pivot < input_arr[j]) j -= 1;
-        if(i < j) {
-            swap(input_arr[i], input_arr[j]);
-            i += 1;
-            j -= 1;
+        while(true) {
+            while(input_arr[i] < pivot) i+=1;
+            while(pivot < input_arr[j]) j -= 1;
+            if(i < j) {
+                swap(input_arr[i], input_arr[j]);
+                i += 1;
+                j -= 1;
+            }
+            else break;
         }
-        else break;
+        inplace_quick_sort(left, i-1);
+        inplace_quick_sort(j+1, right);
     }
-    inplace_quick_sort(left, i-1);
-    inplace_quick_sort(j+1, right);
+    else {
+        //todo: @Jawad please insert the code of insertion sort
+        insertion_sort(left, right);
+    }
 }
 
 int main() {
-	//freopen("input/random/in_50k.txt", "r", stdin);
+	//freopen("input/random/in_40k.txt", "r", stdin);
 	//freopen("out.txt", "w", stdout);
 
 	int i, j, k;
