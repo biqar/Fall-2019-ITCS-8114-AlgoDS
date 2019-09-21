@@ -52,7 +52,7 @@ int* ioArray = NULL;
 
 int insertionSort(int n, int start, int end) {
     int i,j,k;
-    for(j=start+1; j<end; j++){
+    for(j=start+1; j<=end; j++){
         k=ioArray[j];
         i=j-1;
         while(i>=0 && ioArray[i]>k){
@@ -74,7 +74,7 @@ int main() {
     //load input after this line
     int x, n;
     ifstream inFile;
-    inFile.open("input\\random\\in_5k.txt"); // put the input file path here
+    inFile.open("input\\random\\in_50k.txt"); // put the input file path here
     if (!inFile){
         cerr<< "Error!"<<endl;
         exit(1);
@@ -93,11 +93,11 @@ int main() {
     //note: implement your algorithm here ... execution time will be printed automatically!
     double st = clock();
     int start =0;
-    int end = n;
+    int end = n-1;
     insertionSort(n, start, end);
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
     // load output here
-    ofstream outfile ("output\\insertion_sort\\out_5k.txt");
+    ofstream outfile ("output\\insertion_sort\\out_50k.txt");
     if (outfile.is_open()){
         for(i=0; i < n; i++){
             outfile << ioArray[i] << endl ;
