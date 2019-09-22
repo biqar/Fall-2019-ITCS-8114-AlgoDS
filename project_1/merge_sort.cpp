@@ -47,8 +47,10 @@ typedef long double ld;
 const double pi = acos(-1.0);
 const double eps = 1e-9;
 const int inf = (1 << 28);
-const int MAX = 1005;
-int* ioArray = NULL;
+const int MAX = 50005;
+
+int input_arr[MAX];
+int x;
 
 int merge(int n, int start, int mid, int end){
     int n1= mid - start +1;
@@ -57,24 +59,24 @@ int merge(int n, int start, int mid, int end){
     int rightArray[n2];
     int i,j,k;
     for(i=0; i<n1; i++){
-        leftArray[i]=ioArray[start+i];
+        leftArray[i]=input_arr[start+i];
     }
     for(j=0; j<n2; j++){
-        rightArray[j]=ioArray[mid+1+j];
+        rightArray[j]=input_arr[mid+1+j];
     }
     i=0, j=0, k=start;
     while(i<n1 && j<n2){
         if(leftArray[i]<=rightArray[j]){
-            ioArray[k++]=leftArray[i++];
+            input_arr[k++]=leftArray[i++];
         }else{
-            ioArray[k++]=rightArray[j++];
+            input_arr[k++]=rightArray[j++];
         }
     }
     while(i<n1){
-        ioArray[k++]=leftArray[i++];
+        input_arr[k++]=leftArray[i++];
     }
     while(j<n2){
-        ioArray[k++]=rightArray[j++];
+        input_arr[k++]=rightArray[j++];
     }
 
     return 0;
@@ -96,39 +98,21 @@ int main() {
 
     int i, j, k;
     int test, t = 0, kase = 0;
-
-    //load input after this line
-    int x, n;
-    ifstream inFile;
-    inFile.open("input\\random\\in_50k.txt"); // put the input file path here
-    if (!inFile){
-        cerr<< "Error!"<<endl;
-        exit(1);
+    //
+    int n;
+    scanf("%d", &x);
+    n = x;
+    for(i=0; i<n; i+=1) {
+        scanf("%d", &input_arr[i]);
     }
-    int index=0;
-    while (inFile >> x){
-        if (!index){
-            n=x;
-            ioArray = new int[n];
-        }else{
-            ioArray[index-1]=x;
-        }
-        index+= 1;
-    }
-    inFile.close();
-    //note: implement your algorithm here ... execution time will be printed automatically!
     double st = clock();
     int start =0;
     int end = n-1;
     mergeSort(n, start, end);
-    cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
-    // load output here
-    ofstream outfile ("output\\merge_sort\\out_50k.txt");
-    if (outfile.is_open()){
-        for(i=0; i < n; i++){
-            outfile << ioArray[i] << endl ;
-        }
-        outfile.close();
+    for(i=0; i<n; i+=1) {
+        printf("%d\n", input_arr[i]);
     }
+    cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
+    //
     return 0;
 }

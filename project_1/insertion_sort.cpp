@@ -47,19 +47,22 @@ typedef long double ld;
 const double pi = acos(-1.0);
 const double eps = 1e-9;
 const int inf = (1 << 28);
-const int MAX = 1005;
-int* ioArray = NULL;
+const int MAX = 50005;
+
+int input_arr[MAX];
+int x;
+
 
 int insertionSort(int n, int start, int end) {
     int i,j,k;
     for(j=start+1; j<=end; j++){
-        k=ioArray[j];
+        k=input_arr[j];
         i=j-1;
-        while(i>=0 && ioArray[i]>k){
-            ioArray[i+1]=ioArray[i];
+        while(i>=0 && input_arr[i]>k){
+            input_arr[i+1]=input_arr[i];
             i--;
         }
-        ioArray[i+1]=k;
+        input_arr[i+1]=k;
     }
     return 0;
 }
@@ -70,39 +73,21 @@ int main() {
 
     int i, j, k;
     int test, t = 0, kase = 0;
-
-    //load input after this line
-    int x, n;
-    ifstream inFile;
-    inFile.open("input\\random\\in_50k.txt"); // put the input file path here
-    if (!inFile){
-        cerr<< "Error!"<<endl;
-        exit(1);
+    //
+    int n;
+    scanf("%d", &x);
+    n = x;
+    for(i=0; i<n; i+=1) {
+        scanf("%d", &input_arr[i]);
     }
-    int index=0;
-    while (inFile >> x){
-        if (!index){
-            n=x;
-            ioArray = new int[n];
-        }else{
-            ioArray[index-1]=x;
-        }
-        index+= 1;
-    }
-    inFile.close();
-    //note: implement your algorithm here ... execution time will be printed automatically!
     double st = clock();
     int start =0;
     int end = n-1;
     insertionSort(n, start, end);
-    cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
-    // load output here
-    ofstream outfile ("output\\insertion_sort\\out_50k.txt");
-    if (outfile.is_open()){
-        for(i=0; i < n; i++){
-            outfile << ioArray[i] << endl ;
-        }
-        outfile.close();
+    for(i=0; i<n; i+=1) {
+        printf("%d\n", input_arr[i]);
     }
+    cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
+    //
     return 0;
 }
