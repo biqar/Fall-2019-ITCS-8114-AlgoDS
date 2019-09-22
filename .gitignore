@@ -26,6 +26,7 @@
 project_1/input/random/in_custom.txt
 project_1/output/insertion_sort/out_custom.txt
 project_1/output/merge_sort/out_custom.txt
+plotting/
 
 # Shared objects (inc. Windows DLLs)
 *.dll
