@@ -4,7 +4,7 @@
 #echo "Input-set: random"
 input_path="input/random/"
 g++ -o insertion_sort insertion_sort.cpp
-for file in input/rev_sorted/*; do
+for file in $input_path*; do
   #echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
@@ -20,7 +20,7 @@ done
 #echo "Algorithm: Merge Sort"
 #echo "Input-set: random"
 g++ -o merge_sort merge_sort.cpp
-for file in input/rev_sorted/*; do
+for file in $input_path*; do
   #echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
@@ -36,7 +36,7 @@ done
 #echo "Algorithm: Heap Sort"
 #echo "Input-set: random"
 g++ -o heapsort heapsort.cpp
-for file in input/rev_sorted/*; do
+for file in $input_path*; do
   #echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
@@ -52,7 +52,7 @@ done
 #echo "Algorithm: In-place Quick Sort"
 #echo "Input-set: random"
 g++ -o inplace_quicksort inplace_quicksort.cpp
-for file in input/rev_sorted/*; do
+for file in $input_path*; do
   #echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
@@ -68,7 +68,7 @@ done
 #echo "Algorithm: Modified Quick Sort"
 #echo "Input-set: random"
 g++ -o modified_quicksort modified_quicksort.cpp
-for file in input/rev_sorted/*; do
+for file in $input_path*; do
   #echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
