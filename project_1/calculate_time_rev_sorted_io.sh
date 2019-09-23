@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#echo "Algorithm: Insertion Sort"
-#echo "Input-set: rev_sorted"
+echo "Algorithm: Insertion Sort"
+echo "Input-set: rev_sorted"
 input_path="input/rev_sorted/"
 g++ -o insertion_sort insertion_sort.cpp
 for file in $input_path*; do
-  #echo "Input File: ${file##*/}"
+  echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
   while [ $counter -le 3 ]
@@ -15,13 +15,13 @@ for file in $input_path*; do
   done
 done
 
-#echo "*****************<>*****************"
+echo "*****************<>*****************"
 
-#echo "Algorithm: Merge Sort"
-#echo "Input-set: rev_sorted"
+echo "Algorithm: Merge Sort"
+echo "Input-set: rev_sorted"
 g++ -o merge_sort merge_sort.cpp
 for file in $input_path*; do
-  #echo "Input File: ${file##*/}"
+  echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
   while [ $counter -le 3 ]
@@ -31,13 +31,13 @@ for file in $input_path*; do
   done
 done
 
-#echo "*****************<>*****************"
+echo "*****************<>*****************"
 
-#echo "Algorithm: Heap Sort"
-#echo "Input-set: rev_sorted"
+echo "Algorithm: Heap Sort"
+echo "Input-set: rev_sorted"
 g++ -o heapsort heapsort.cpp
 for file in $input_path*; do
-  #echo "Input File: ${file##*/}"
+  echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
   while [ $counter -le 3 ]
@@ -47,13 +47,13 @@ for file in $input_path*; do
   done
 done
 
-#echo "*****************<>*****************"
+echo "*****************<>*****************"
 
-#echo "Algorithm: In-place Quick Sort"
-#echo "Input-set: rev_sorted"
+echo "Algorithm: In-place Quick Sort"
+echo "Input-set: rev_sorted"
 g++ -o inplace_quicksort inplace_quicksort.cpp
 for file in $input_path*; do
-  #echo "Input File: ${file##*/}"
+  echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
   while [ $counter -le 3 ]
@@ -63,13 +63,13 @@ for file in $input_path*; do
   done
 done
 
-#echo "*****************<>*****************"
+echo "*****************<>*****************"
 
-#echo "Algorithm: Modified Quick Sort"
-#echo "Input-set: rev_sorted"
+echo "Algorithm: Modified Quick Sort"
+echo "Input-set: rev_sorted"
 g++ -o modified_quicksort modified_quicksort.cpp
 for file in $input_path*; do
-  #echo "Input File: ${file##*/}"
+  echo "Input File: ${file##*/}"
   counter=1
   execution_time=0.0
   while [ $counter -le 3 ]
@@ -78,3 +78,5 @@ for file in $input_path*; do
     ((counter++))
   done
 done
+
+echo "*****************<>*****************"
