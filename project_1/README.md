@@ -41,6 +41,7 @@ In this project, we have implemented the following sorting algorithms and compar
     * to run: $ ./modified_quicksort
 
 **Time Calculation**
+
 We prepared the following three scripts to check the execution time of the sorting algorithms we have implemented in this project.
 1. For random i/o
     * script file name: calculate_time_random_io.sh
@@ -56,5 +57,6 @@ If you find these files not executable, you can run the following command to mak
   * $ chmod +x <file_name>
 
 **Report**
+
 A well-formatted report covering data structures chosen, complexity analysis, results and code is placed in report directory.
 
