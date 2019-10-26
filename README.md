@@ -30,3 +30,41 @@ Implement the following sorting algorithms and compare them. You can use any pro
   1. A well-formatted report covering data structures chosen, complexity analysis, results and code.
   2. Upload program code for execution. Make sure you provide readme for TA.
 * In addition, hardcopy of report without code to me in the class.
+
+### Project 2: Graph Algorithms (singles-source shortest path and Minimum Spanning Tree)
+---
+In this project, you will implement two graph algorithms mentioned below. Note: You can work alone or in a team of TWO max.
+
+**Problem 1:**
+Find shortest path tree in both directed and undirected weighted graphs for a given source vertex. Assume there is no negative edge in your graph. You will print each path and path cost for a given source.
+
+**Problem 2:**
+Given a connected, undirected, weighted graph, find a spanning tree using edges that minimizes the total weight 𝑤(𝑇) = ∑<sub>(u, v)∈T</sub> 𝑤(𝑢, 𝑣). Use Kruskal algorithm to find Minimum Spanning Tree (MST). You will printout the edges of the tree and the total cost of your answer.
+
+**Input format:**
+For each problem, you will take input from a text file. Say you want to run algorithm on the following undirected graph. The corresponding file format would be:
+
+6  10 U<br/>
+A  B  1<br/>
+A  C  2<br/>
+B  C  1<br/>
+B  D  3<br/>
+B  E  2<br/>
+C  D  1<br/>
+C  E  2<br/>
+D  E  4<br/>
+D  F  3<br/>
+E  F  3<br/>
+A<br/>
+
+Here, the first two numbers represent the number of vertices and edges. The letter U stands for undirected graph (D for directed). From the second line, it mentions all edges and its weight (e.g. *𝑒𝑑𝑔𝑒(𝐴, 𝐵)* and its weight is 1. The last line is optional. If given, it represents the source node.
+
+**Submission instructions:**
+* A well-formatted report covering a short description of each algorithm, data structure chosen, runtime of your code, sample input/output, instruction to run your program easily.
+* For each problem, run your program for four different graphs of your choice. Use your judgement to define test graphs that you think interesting and reasonable. For example:
+* Undirected graph: at least 7 nodes and 12 edges
+* Directed graph: at least 7 nodes and 15 edges
+* Clean code for TA to execute.
+* You can use any programming language (e.g. C/C++, Java, Python, etc.)
+* If worked in a team, both members are required to submit everything separately.
+* Hardcopy of your report to me directly; one copy per team.
