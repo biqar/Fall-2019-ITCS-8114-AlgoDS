@@ -80,6 +80,11 @@ void get_input() {
         //if(!is_directed) edge_list.push_back(make_pair(w, pii(v, u)));
     }
 
+    if(is_directed) {
+        cout << "Kruskal's algorithm for finding MST can't work on directed graph." << endl;
+        exit(0);
+    }
+
     /*for(int i=0; i<edges; i+=1) {
         cout << edge_list[i].ss.ff << " " << edge_list[i].ss.ss << " " << edge_list[i].ff << endl;
     }*/
