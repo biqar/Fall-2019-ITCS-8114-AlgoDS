@@ -1,7 +1,7 @@
 #exclude all extension-less executable from the repo
-*
-!*.*
-!*/
+#*
+#!*.*
+#!*/
 
 # Prerequisites
 *.d
@@ -67,3 +67,6 @@ dkms.conf
 
 # mac os system file
 *.DS_Store
+
+# build directory
+**/build/*
