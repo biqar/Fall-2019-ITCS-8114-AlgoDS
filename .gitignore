@@ -65,3 +65,5 @@ dkms.conf
 # ide specific settings
 .idea
 
+# mac os system file
+*.DS_Store
