@@ -55,7 +55,7 @@ struct comp {
 
 priority_queue< pii, vector< pii >, comp > pq;
 vector<pii> graph[MAX];
-int dist[MAX], nodes, edges, st;
+int dist[MAX], nodes, edges, st, parent[MAX];
 bool vis[MAX], is_directed;
 
 void get_input() {
@@ -106,6 +106,7 @@ void run_dijkstra () {
         vis[i] = false;
     }
     dist[st] = 0;
+    parent[st] = -1;
     pq.push(pii(st, 0));
 
     while(!pq.empty()) {
@@ -118,13 +119,35 @@ void run_dijkstra () {
             w = graph[u][i].ss;
             if(!vis[v] && dist[v] > dist[u] + w) {
                 dist[v] = dist[u] + w;
+                parent[v] = u;
                 pq.push(pii(v, dist[v]));
             }
         }
         vis[u] = true;
     }
+}
 
-    for(int i=0; i<nodes; i++) printf("from [%d] to [%d], min weight = %d\n", st, i, dist[i]);
+void print_path_recursive(int u) {
+    // base!
+    if(parent[u] == -1) return;
+    print_path_recursive(parent[u]);
+    cout << u << " <- ";
+}
+
+void print_shortest_paths() {
+    for(int i=0; i<nodes && i!=st; i++) {
+        cout << "from [" << st << "] to [" << i << "], min weight to reach: ";
+
+        if(dist[i] >= inf) {
+            cout << "unreachable" << endl;
+        }
+        else {
+            cout << dist[i] << endl;
+            cout << "path: ";
+            print_path_recursive(i);
+            cout << st << endl;
+        }
+    }
 }
 
 int main() {
@@ -140,6 +163,7 @@ int main() {
 
     get_input();
     run_dijkstra();
+    print_shortest_paths();
 
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
 
