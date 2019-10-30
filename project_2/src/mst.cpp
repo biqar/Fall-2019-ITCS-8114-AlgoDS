@@ -47,10 +47,22 @@ const double eps = 1e-9;
 const int inf = (1 << 28);
 const int MAX = 1005;
 
-int parent[MAX], total_mst_cost, nodes, edges;
+struct disjoint_set {
+    int parent, rank;
+};
+
+int total_mst_cost, nodes, edges;
 bool is_directed;
 
 vector< pair< int, pii > > edge_list, mst;
+struct disjoint_set dset[MAX];
+
+void init_dsd() {
+    for(int i=0; i<nodes; i+=1) {
+        dset[i].parent = i;
+        dset[i].rank = 0;
+    }
+}
 
 void get_input() {
     string line, dir, u_str, v_str;
@@ -90,15 +102,23 @@ void get_input() {
     }*/
 }
 
-void init_dsd() {
-    for(int i=0; i<nodes; i+=1) {
-        parent[i] = i;
-    }
+/*find root of the disjoint set with path compression*/
+int find_set(int x) {
+    if(x != dset[x].parent) dset[x].parent = find_set(dset[x].parent);
+    return dset[x].parent;
 }
 
-int find_set(int x) {
-    if(x != parent[x]) parent[x] = find_set(parent[x]);
-    return parent[x];
+void union_by_rank(int px, int py) {
+    if(dset[px].rank < dset[py].rank) {
+        dset[px].parent = py;
+    }
+    else if(dset[px].rank > dset[py].rank) {
+        dset[py].parent = px;
+    }
+    else {
+        dset[py].parent = px;
+        dset[px].rank += 1;
+    }
 }
 
 void calculate_mst() {
@@ -122,7 +142,7 @@ void calculate_mst() {
         if(pu != pv) {
             mst.push_back(edge_list[i]);
             total_mst_cost += edge_list[i].ff;
-            parent[pu] = parent[pv];
+            union_by_rank(pu, pv);
         }
     }
 }
