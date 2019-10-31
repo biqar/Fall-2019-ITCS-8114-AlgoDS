@@ -71,8 +71,6 @@ void get_input() {
     if(dir[0] == 'U') is_directed = false;
     else is_directed = true;
 
-    //cout << nodes << " " << edges << " " << is_directed << endl;
-
     for(int i=0; i<edges; i+=1) {
         getline(cin, line);
         stringstream ss(line);
@@ -128,7 +126,7 @@ void run_dijkstra () {
 }
 
 void print_path_recursive(int u) {
-    // base!
+    // base case!
     if(parent[u] == -1) return;
     print_path_recursive(parent[u]);
     cout << u << " <- ";
@@ -158,14 +156,13 @@ int main() {
     int test, t = 0, kase = 0;
 
     //load input after this line
-
     double st = clock();
 
     get_input();
     run_dijkstra();
     print_shortest_paths();
 
-    cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
+    cerr << "Execution time: " << (clock() - st) / CLOCKS_PER_SEC << endl;
 
     return 0;
 }

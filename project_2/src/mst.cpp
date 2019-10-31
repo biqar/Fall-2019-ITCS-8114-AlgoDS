@@ -77,8 +77,6 @@ void get_input() {
     if(dir[0] == 'U') is_directed = false;
     else is_directed = true;
 
-    //cout << nodes << " " << edges << " " << is_directed << endl;
-
     for(int i=0; i<edges; i+=1) {
         getline(cin, line);
         stringstream ss(line);
@@ -89,7 +87,6 @@ void get_input() {
         v = v_str[0] - 'A';
 
         edge_list.push_back(make_pair(w, pii(u, v)));
-        //if(!is_directed) edge_list.push_back(make_pair(w, pii(v, u)));
     }
 
     if(is_directed) {
@@ -108,6 +105,7 @@ int find_set(int x) {
     return dset[x].parent;
 }
 
+/*union disjoint sets by rank*/
 void union_by_rank(int px, int py) {
     if(dset[px].rank < dset[py].rank) {
         dset[px].parent = py;
@@ -131,12 +129,8 @@ void calculate_mst() {
         u = edge_list[i].ss.ff;
         v = edge_list[i].ss.ss;
 
-        //cout << u << " " << v << endl;
-
         pu = find_set(u);
         pv = find_set(v);
-
-        //cout << pu << " " << pv << endl;
 
         /*u and v are not in same set, connect them by this edge and add a link among them*/
         if(pu != pv) {
@@ -178,7 +172,7 @@ int main() {
     //print mst edges with weight
     print_mst();
 
-    cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
+    cerr << "Execution time: " << (clock() - st) / CLOCKS_PER_SEC << endl;
 
     return 0;
 }
