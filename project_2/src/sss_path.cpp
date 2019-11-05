@@ -85,7 +85,8 @@ void get_input() {
     }
 
     getline(cin, line);
-    ss >> u_str;
+    stringstream ss_source(line);
+    ss_source >> u_str;
     st = u_str[0] - 'A';
 
     /*for(int i=0; i<nodes; i+=1) {
@@ -133,7 +134,7 @@ void print_path_recursive(int u) {
 }
 
 void print_shortest_paths() {
-    for(int i=0; i<nodes && i!=st; i++) {
+    for(int i=0; i<nodes; i++) {
         cout << "from [" << st << "] to [" << i << "], min weight to reach: ";
 
         if(dist[i] >= inf) {
