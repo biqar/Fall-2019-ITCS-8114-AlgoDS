@@ -130,21 +130,21 @@ void print_path_recursive(int u) {
     // base case!
     if(parent[u] == -1) return;
     print_path_recursive(parent[u]);
-    cout << u << " <- ";
+    cout << " -> " << (char) (u + 'A');
 }
 
 void print_shortest_paths() {
     for(int i=0; i<nodes; i++) {
-        cout << "from [" << st << "] to [" << i << "], min weight to reach: ";
+        cout << "from [" << (char) (st + 'A') << "] to [" << (char) (i + 'A') << "], min weight to reach: ";
 
         if(dist[i] >= inf) {
             cout << "unreachable" << endl;
         }
         else {
             cout << dist[i] << endl;
-            cout << "path: ";
+            cout << "path: " << (char) (st + 'A');
             print_path_recursive(i);
-            cout << st << endl;
+            cout << endl;
         }
     }
 }
