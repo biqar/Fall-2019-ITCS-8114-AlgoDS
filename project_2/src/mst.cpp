@@ -146,7 +146,7 @@ void print_mst() {
 
     cout << "Cost for building mst: " << total_mst_cost << endl;
     for(int i=0; i<sz; i+=1) {
-        cout << mst[i].ss.ff << " " << mst[i].ss.ss << " -> " << mst[i].ff << endl;
+        cout << (char) (mst[i].ss.ff + 'A') << " " << (char) (mst[i].ss.ss + 'A') << " -> " << mst[i].ff << endl;
     }
 }
 
