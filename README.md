@@ -44,18 +44,20 @@ Given a connected, undirected, weighted graph, find a spanning tree using edges 
 **Input format:**
 For each problem, you will take input from a text file. Say you want to run algorithm on the following undirected graph. The corresponding file format would be:
 
-6  10 U<br/>
-A  B  1<br/>
-A  C  2<br/>
-B  C  1<br/>
-B  D  3<br/>
-B  E  2<br/>
-C  D  1<br/>
-C  E  2<br/>
-D  E  4<br/>
-D  F  3<br/>
-E  F  3<br/>
-A<br/>
+```
+6  10 U
+A  B  1
+A  C  2
+B  C  1
+B  D  3
+B  E  2
+C  D  1
+C  E  2
+D  E  4
+D  F  3
+E  F  3
+A
+```
 
 Here, the first two numbers represent the number of vertices and edges. The letter U stands for undirected graph (D for directed). From the second line, it mentions all edges and its weight (e.g. *𝑒𝑑𝑔𝑒(𝐴, 𝐵)* and its weight is 1. The last line is optional. If given, it represents the source node.
 
@@ -68,3 +70,7 @@ Here, the first two numbers represent the number of vertices and edges. The lett
 * You can use any programming language (e.g. C/C++, Java, Python, etc.)
 * If worked in a team, both members are required to submit everything separately.
 * Hardcopy of your report to me directly; one copy per team.
+
+**Grading Scheme:**
+
+![image for project_2 grading scheme](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_2/report/P2-Rubrics.png)
