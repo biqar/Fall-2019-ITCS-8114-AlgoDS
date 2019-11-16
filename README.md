@@ -74,3 +74,34 @@ Here, the first two numbers represent the number of vertices and edges. The lett
 **Grading Scheme:**
 
 ![image for project_2 grading scheme](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_2/report/P2-Rubrics.png)
+
+### Project 3: Pattern Matching Algorithms
+---
+Note: You can work alone or in a team of three max.
+
+For this assignment, you will implement only THREE pattern matching algorithms of your choice from the list given below.
+
+* Brute-Force algorithm
+* Boyer-Moore-Horspool algorithm
+* Knuth-Morris-Pratt algorithm
+* Boyer-Moore algorithm
+* Finite automation for pattern matching
+
+**Experiment:**
+
+* Compare three algorithms for several different input text and patterns; at least 10 different cases
+* Mention the number of comparisons required in a table for each case, for each algorithm
+
+**Submission:**
+
+* A well-formatted report covering short description of each algorithm, data structure used, runtime of your code, sample input/output, instruction to run your program easily.
+* Clean code for TA to execute.
+* You can use any programming language (e.g. C/C++, Java, Python, etc.)
+* If worked in a team, still both members are required to submit everything separately.
+* Hardcopyof your report to me directly; one copy per team.
+
+**Grading Scheme:**
+
+* 3 x 15 = 45 points: For implementing THREE algorithms
+* 20 points: for experiment
+* 10 points: Report
