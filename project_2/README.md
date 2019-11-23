@@ -1,5 +1,5 @@
 # Project 2: Graph Algorithms (singles-source shortest path and Minimum Spanning Tree)
----
+
 In this project, I have implemented two graph algorithms mentioned below. Note: I have worked alone in this project.
 
 **Problem 1:**
