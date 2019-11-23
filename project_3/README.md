@@ -1,5 +1,5 @@
 # Project 3: Pattern Matching Algorithms
----
+
 Note: You can work alone or in a team of three max.
 
 For this assignment, you will implement only THREE pattern matching algorithms of your choice from the list given below.
