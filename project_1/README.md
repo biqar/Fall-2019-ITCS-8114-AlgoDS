@@ -18,7 +18,7 @@ This repository will contains the entities of project_1 of course **ITCS 6114/81
 **Source Code Execution Instructions:**
 
 In this project, we have implemented the following sorting algorithms and compare them. For this project, we have used C/C++ as programming language.
-
+```
 1. Insertion sort
     * sourcecode: insertion_sort.cpp
     * to compile: $ g++ insertion_sort.cpp -o insertion_sort
@@ -39,23 +39,25 @@ In this project, we have implemented the following sorting algorithms and compar
     * sourcecode: modified_quicksort.cpp
     * to compile: $ g++ modified_quicksort.cpp -o modified_quicksort
     * to run: $ ./modified_quicksort
-
+```
 **Time Calculation**
 
 We prepared the following three scripts to check the execution time of the sorting algorithms we have implemented in this project.
+```
 1. For random i/o
-    * script file name: calculate_time_random_io.sh
-    * to run: $ ./calculate_time_random_io.sh
+    * script file name: calculate_time_random_io.sh, to run:
+    $ ./calculate_time_random_io.sh
 2. For sorted i/o
-    * script file name: calculate_time_sorted_io.sh
-    * to run: $ ./calculate_time_sorted_io.sh
+    * script file name: calculate_time_sorted_io.sh, to run:
+    $ ./calculate_time_sorted_io.sh
 3. For reversely sorted i/o
-    * script file name: calculate_time_rev_sorted_io.sh
-    * to run: $ ./calculate_time_rev_sorted_io.sh
-
+    * script file name: calculate_time_rev_sorted_io.sh, to run:
+    $ ./calculate_time_rev_sorted_io.sh
+```
 If you find these files not executable, you can run the following command to make it executable:
-  * $ chmod +x <file_name>
-
+```
+$ chmod +x <file_name>
+```
 **Report**
 
 A well-formatted report covering data structures chosen, complexity analysis, results and code is placed in report directory.
