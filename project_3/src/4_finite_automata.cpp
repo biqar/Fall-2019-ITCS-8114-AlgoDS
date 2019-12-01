@@ -48,7 +48,7 @@ void calculate_dfa_table() {
 void print_dfa_table() {
     for(int i=0; i<26; i+=1) {
         for(int j=0; j<pattern_len; j+=1) {
-            printf("%d ");
+            printf("%d ", dfa[i][j]);
         }
         printf("\n");
     }
