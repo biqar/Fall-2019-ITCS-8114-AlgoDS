@@ -19,6 +19,7 @@ const int inf = (1 << 28);
 string text, pattern;
 int text_len, pattern_len;
 int pi[MAX];
+int number_of_comparison;
 
 void kmp_failure_function_naive() {
     for(int i=0; i<pattern_len; i+=1) {
@@ -42,11 +43,18 @@ void kmp_failure_function_fast() {
     }
 }
 
+void print_kmp_failure_table() {
+    for(int i=0; i<pattern_len; i+=1) printf("%d ", pi[i]);
+    printf("\n");
+}
+
 int kmp_matching() {
     kmp_failure_function_fast();
-    int i = 0, j = 0;
 
+    number_of_comparison = 0;
+    int i = 0, j = 0;
     while(i < text_len) {
+        number_of_comparison += 1;
         if(text[i] == pattern[j]) {
             if(j == pattern_len-1) return i - j;
             else {
@@ -79,8 +87,8 @@ int main() {
     int match_found = kmp_matching();
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
 
-    if(match_found == -1) printf("pattern not matched in the text\n");
-    else printf("pattern matched in the text at text position: %d\n", match_found);
+    if(match_found == -1) printf("pattern not matched in the text; # of comparison required: %d\n", number_of_comparison);
+    else printf("pattern matched in the text at text position: %d; # of comparison required: %d\n", match_found, number_of_comparison);
 
     return 0;
 }
