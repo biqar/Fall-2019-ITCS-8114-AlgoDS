@@ -22,6 +22,7 @@ const int inf = (1 << 28);
 string text, pattern;
 int text_len, pattern_len;
 int dfa[30][MAX], pi[MAX];
+int number_of_comparison;
 
 //kmp_failure_function_fast
 void prefix_function() {
@@ -57,8 +58,10 @@ void print_dfa_table() {
 int dfa_matching() {
     calculate_dfa_table();
 
+    number_of_comparison = 0;
     int current_state = 0;
     for(int i=0; i<text_len; i+=1) {
+        number_of_comparison += 1;
         current_state = dfa[scale(text[i])][current_state];
         if(current_state == pattern_len) return (i - pattern_len + 1);
     }
@@ -81,8 +84,8 @@ int main() {
     int match_found = dfa_matching();
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
 
-    if(match_found == -1) printf("pattern not matched in the text\n");
-    else printf("pattern matched in the text at text position: %d\n", match_found);
+    if(match_found == -1) printf("pattern not matched in the text; # of comparison required: %d\n", number_of_comparison);
+    else printf("pattern matched in the text at text position: %d; # of comparison required: %d\n", match_found, number_of_comparison);
 
     return 0;
 }

@@ -22,6 +22,7 @@ const int inf = (1 << 28);
 string text, pattern;
 int text_len, pattern_len;
 int shift_table[30];
+int number_of_comparison;
 
 void build_shift_table() {
     for(int i=0; i<30; i+=1) shift_table[i] = pattern_len;
@@ -40,11 +41,17 @@ void print_shift_table() {
 int horspool_matching() {
     build_shift_table();
 
+    number_of_comparison = 0;
     int i = pattern_len - 1;
     while(i < text_len) {
         int j = 0;
-        while(j<pattern_len && pattern[pattern_len-1-j] == text[i-j]) j+= 1;
+        while(j<pattern_len && pattern[pattern_len-1-j] == text[i-j]) {
+            j+= 1;
+            number_of_comparison += 1;
+        }
         if(j == pattern_len) return (i - pattern_len + 1);
+
+        number_of_comparison += 1;  //for failed match
         i += shift_table[scale(text[i])];
     }
     return -1;
@@ -66,8 +73,8 @@ int main() {
     int match_found = horspool_matching();
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
 
-    if(match_found == -1) printf("pattern not matched in the text\n");
-    else printf("pattern matched in the text at text position: %d\n", match_found);
+    if(match_found == -1) printf("pattern not matched in the text; # of comparison required: %d\n", number_of_comparison);
+    else printf("pattern matched in the text at text position: %d; # of comparison required: %d\n", match_found, number_of_comparison);
 
     return 0;
 }
