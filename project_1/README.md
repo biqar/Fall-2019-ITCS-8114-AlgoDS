@@ -1,11 +1,11 @@
 # Project 1: Comparison-based Sorting Algorithms
 This repository will contains the entities of project_1 of course **ITCS 6114/8114: Algorithms and Data Structures**.
 
-**Collaborators**
+### Collaborators
 1. Abdullah Al Raqibul Islam (ID# 801151189)
 2. Jawad Chowdhury (ID# 801135477)
 
-**Input & Output Specification:**
+### Input & Output Specification
 
 1. To compare different sorting algorithms, we considered three types of input set
     * Randomly generated input, placed in input/random directory
@@ -15,7 +15,7 @@ This repository will contains the entities of project_1 of course **ITCS 6114/81
 3. Each input file contains two lines of inputs. First line of  will contains **N**, the number of elements considered for the sorting. The next line will contains **N** numbers **(0 <= A[i] < 10^8)**.
 4. For every input set we write **N** lines of output, each line will contains a single number in sorted manner.
 
-**Source Code Execution Instructions:**
+### Source Code Execution Instructions
 
 In this project, we have implemented the following sorting algorithms and compare them. For this project, we have used C/C++ as programming language.
 ```
@@ -40,7 +40,7 @@ In this project, we have implemented the following sorting algorithms and compar
     * to compile: $ g++ modified_quicksort.cpp -o modified_quicksort
     * to run: $ ./modified_quicksort
 ```
-**Time Calculation**
+### Time Calculation
 
 We prepared the following three scripts to check the execution time of the sorting algorithms we have implemented in this project.
 ```
@@ -58,7 +58,7 @@ If you find these files not executable, you can run the following command to mak
 ```
 $ chmod +x <file_name>
 ```
-**Report**
+### Report
 
 A well-formatted report covering data structures chosen, complexity analysis, results and code is placed in report directory.
 
