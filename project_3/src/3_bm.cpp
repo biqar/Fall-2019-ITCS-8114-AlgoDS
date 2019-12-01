@@ -22,6 +22,7 @@ const int inf = (1 << 28);
 string text, pattern;
 int text_len, pattern_len;
 int bs_shift_table[30], gs_shift_table[MAX], pos[MAX];
+int number_of_comparison;
 
 int _max(int a, int b) {
     return a > b ? a : b;
@@ -51,7 +52,7 @@ void full_suffix_match() {
 void partial_suffix_match() {
     int i, j;
     j = pos[0];
-    for(i=0; i <= text_len; i+=1) {
+    for(i=0; i <= pattern_len; i+=1) {
         if(gs_shift_table[i] == 0) gs_shift_table[i]=j;
         if(i == j) j = pos[j];
     }
@@ -60,6 +61,12 @@ void partial_suffix_match() {
 void build_good_suffix_shift_table() {
     full_suffix_match();
     partial_suffix_match();
+}
+
+void print_good_suffix_shift_table() {
+    for(int i=0; i<=pattern_len; i+=1) {
+        printf("%d: %d\n", i, gs_shift_table[i]);
+    }
 }
 
 void print_bad_symbol_shift_table() {
@@ -73,12 +80,18 @@ int bm_matching() {
     build_bad_symbol_shift_table();
     build_good_suffix_shift_table();
 
+    number_of_comparison = 0;
     int i = pattern_len - 1;
     while(i < text_len) {
         int j = 0;
-        while(j<pattern_len && pattern[pattern_len-1-j] == text[i-j]) j+= 1;
+        while(j<pattern_len && pattern[pattern_len-1-j] == text[i-j]) {
+            j+= 1;
+            number_of_comparison += 1;
+        }
         if(j == pattern_len) return (i - pattern_len + 1);
-        i += _max(gs_shift_table[pattern_len-1-j], (bs_shift_table[text[j-1]] - j));
+
+        number_of_comparison += 1;  //for failed match
+        i += _max(gs_shift_table[pattern_len-j], (bs_shift_table[scale(text[i-j])] - j));
     }
     return -1;
 }
@@ -99,8 +112,8 @@ int main() {
     int match_found = bm_matching();
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
 
-    if(match_found == -1) printf("pattern not matched in the text\n");
-    else printf("pattern matched in the text at text position: %d\n", match_found);
+    if(match_found == -1) printf("pattern not matched in the text; # of comparison required: %d\n", number_of_comparison);
+    else printf("pattern matched in the text at text position: %d; # of comparison required: %d\n", match_found, number_of_comparison);
 
     return 0;
 }
