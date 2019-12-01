@@ -6,46 +6,82 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
-#include <cctype>
 #include <cstring>
-
 #include <string>
 #include <algorithm>
-#include <vector>
-#include <list>
-#include <map>
-#include <set>
-#include <deque>
-#include <queue>
-#include <stack>
-
 using namespace std;
 
-//#define _rep( i, a, b, x ) for( __typeof(b) i = ( a ); i <= ( b ); i += x )
-#define _rep(i, a, b, x) for( i = ( a ); i <= ( b ); i += x )
-#define rep(i, n) _rep( i, 0, n - 1, 1 )
+#define scale(x) (x-'A')
+#define rev_scale(x) (x+'A')
 
-#define ff first
-#define ss second
-
-#define pii pair< int, int >
-#define psi pair< string, int >
-
-#define pb(x) push_back(x)
-#define mp(x, y) make_pair(x, y)
-
-#define set(p) memset(p, -1, sizeof(p))
-#define clr(p) memset(p, 0, sizeof(p))
-
-//typedef long long i64;
-//typedef __int64 i64;
 typedef long double ld;
 
-//const double pi = (2.0*acos(0.0));
-const double pi = acos(-1.0);
-const double eps = 1e-9;
+const int MAX = 1000005;
 const int inf = (1 << 28);
-const int MAX = 1005;
+
+string text, pattern;
+int text_len, pattern_len;
+int bs_shift_table[30], gs_shift_table[MAX], pos[MAX];
+
+int _max(int a, int b) {
+    return a > b ? a : b;
+}
+
+void build_bad_symbol_shift_table() {
+    for(int i=0; i<30; i+=1) bs_shift_table[i] = pattern_len;
+    for(int j=1,i=pattern_len-2; i>=0; j+=1,i-=1) {
+        if(bs_shift_table[scale(pattern[i])] == pattern_len) bs_shift_table[scale(pattern[i])] = j;
+    }
+}
+
+void full_suffix_match() {
+    int i = pattern_len, j = pattern_len+1;
+    pos[i] = j;
+    while(i > 0) {
+        while ((j <= pattern_len) && (pattern[i-1] != pattern[j-1])) {
+            if(gs_shift_table[j] == 0) gs_shift_table[j] = j-i;
+            j = pos[j];
+        }
+        i -= 1;
+        j -= 1;
+        pos[i] = j;
+    }
+}
+
+void partial_suffix_match() {
+    int i, j;
+    j = pos[0];
+    for(i=0; i <= text_len; i+=1) {
+        if(gs_shift_table[i] == 0) gs_shift_table[i]=j;
+        if(i == j) j = pos[j];
+    }
+}
+
+void build_good_suffix_shift_table() {
+    full_suffix_match();
+    partial_suffix_match();
+}
+
+void print_bad_symbol_shift_table() {
+    for(int i=0; i<26; i+=1) {
+        printf("%c:%d ", rev_scale(i), bs_shift_table[i]);
+    }
+    printf("\n");
+}
+
+int bm_matching() {
+    build_bad_symbol_shift_table();
+    build_good_suffix_shift_table();
+
+    int i = pattern_len - 1;
+    while(i < text_len) {
+        int j = 0;
+        while(j<pattern_len && pattern[pattern_len-1-j] == text[i-j]) j+= 1;
+        if(j == pattern_len) return (i - pattern_len + 1);
+        i += _max(gs_shift_table[pattern_len-1-j], (bs_shift_table[text[j-1]] - j));
+    }
+    return -1;
+}
 
 int main() {
     //freopen("in.txt", "r", stdin);
@@ -54,13 +90,17 @@ int main() {
     int i, j, k;
     int test, t = 0, kase = 0;
 
-    //load input after this line
+    getline(cin, text);
+    getline(cin, pattern);
+    text_len = text.length();
+    pattern_len = pattern.length();
 
     double st = clock();
-
-    //note: implement your algorithm here ... execution time will be printed automatically!
-
+    int match_found = bm_matching();
     cerr << (clock() - st) / CLOCKS_PER_SEC << endl;
+
+    if(match_found == -1) printf("pattern not matched in the text\n");
+    else printf("pattern matched in the text at text position: %d\n", match_found);
 
     return 0;
 }
