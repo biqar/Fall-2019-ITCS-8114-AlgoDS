@@ -10,6 +10,41 @@ For this assignment, you will implement only THREE pattern matching algorithms o
 * Boyer-Moore algorithm
 * Finite automation for pattern matching
 
+**Code Repository Overview**
+```
+.
+├── build
+│   ├── 1_brute_force
+│   ├── 2_bmh
+│   ├── 3_bm
+│   ├── 4_finite_automata
+│   └── 5_kmp
+├── input
+│   ├── 0_sample_failed.in
+│   ├── 1_sample_success.in
+│   ├── 2_sample_correctness_dfa.in
+│   ├── 3_sample_correctness_bmh.in
+│   ├── 4_sample_correctness_kmp.in
+│   ├── 5_sample_correctness_bm.in
+│   ├── 6_sample_worst_bf.in
+│   ├── 7_sample_worst_bmh.in
+│   ├── 8_sample_worst_dfa.in
+│   └── 9_sample_worst_kmp.in
+├── Makefile
+├── README.md
+├── report
+│   └── report_project_3.docx
+└── src
+    ├── 1_brute_force.cpp
+    ├── 2_bmh.cpp
+    ├── 3_bm.cpp
+    ├── 4_finite_automata.cpp
+    ├── 5_kmp.cpp
+    └── template.cpp
+
+4 directories, 24 files
+```
+
 **Experiment:**
 
 * Compare three algorithms for several different input text and patterns; at least 10 different cases
