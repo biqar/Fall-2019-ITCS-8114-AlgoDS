@@ -1,11 +1,11 @@
 # Project 1: Comparison-based Sorting Algorithms
 This repository will contains the entities of project_1 of course **ITCS 6114/8114: Algorithms and Data Structures**.
 
-### Collaborators
+## Collaborators
 1. Abdullah Al Raqibul Islam (ID# 801151189)
 2. Jawad Chowdhury (ID# 801135477)
 
-### Input & Output Specification
+## Input & Output Specification
 
 1. To compare different sorting algorithms, we considered three types of input set
     * Randomly generated input, placed in input/random directory
@@ -15,7 +15,7 @@ This repository will contains the entities of project_1 of course **ITCS 6114/81
 3. Each input file contains two lines of inputs. First line of  will contains **N**, the number of elements considered for the sorting. The next line will contains **N** numbers **(0 <= A[i] < 10^8)**.
 4. For every input set we write **N** lines of output, each line will contains a single number in sorted manner.
 
-### Source Code Execution Instructions
+## Source Code Execution Instructions
 
 In this project, we have implemented the following sorting algorithms and compare them. For this project, we have used C/C++ as programming language.
 ```
@@ -40,14 +40,14 @@ In this project, we have implemented the following sorting algorithms and compar
     * to compile: $ g++ modified_quicksort.cpp -o modified_quicksort
     * to run: $ ./modified_quicksort
 ```
-### Performance Characterization
+## Performance Characterization
 
-#### Test Platform
+### Test Platform
 * Processor: Intel(R) Xeon(R) CPU E5-2620 2.00GHz (12 Core)
 * Linux version: 5.0.0-27-generic
 * g++ version: (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0
 
-#### Sorting Algorithm's Performance Evaluation
+### Sorting Algorithm's Performance Evaluation
 
 Due to the huge scaling difference of the execution time for the sorting algorithms w.r.t. the different cases, we have used the logarithmic scale in the y-axis for the input-size vs time data plotting. For all the figures in this section for the y-axis value, the lower is better.
 
@@ -77,7 +77,7 @@ In figure 1 (b), we can see the time consumption rate for in-place quicksort is 
 
 In figure 1 (c), we can see the time consumption rate for both insertion and in-place quicksort is much higher than all other sorting algorithms (i.e. merge sort, heapsort, and modified quicksort) as this is the worst case for both of these algorithms and it take `O(n^2)` times. On the other hand, rest of the other algorithms (i.e. merge sort, heapsort, and modified quicksort) take much lower time for this case, having a time complexity of `O(nlogn)`.
 
-### How to Reproduce
+## How to Reproduce
 
 We prepared the following three scripts to check the execution time of the sorting algorithms we have implemented in this project.
 ```
@@ -95,7 +95,7 @@ If you find these files not executable, you can run the following command to mak
 ```
 $ chmod +x <file_name>
 ```
-### Report
+## Report
 
 A well-formatted report covering data structures chosen, complexity analysis, results and code is placed in report directory.
 
