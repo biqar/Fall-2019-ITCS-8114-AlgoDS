@@ -40,7 +40,44 @@ In this project, we have implemented the following sorting algorithms and compar
     * to compile: $ g++ modified_quicksort.cpp -o modified_quicksort
     * to run: $ ./modified_quicksort
 ```
-### Time Calculation
+### Performance Characterization
+
+#### Test Platform
+* Processor: Intel(R) Xeon(R) CPU E5-2620 2.00GHz (12 Core)
+* Linux version: 5.0.0-27-generic
+* g++ version: (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0
+
+#### Sorting Algorithm's Performance Evaluation
+
+Due to the huge scaling difference of the execution time for the sorting algorithms w.r.t. the different cases, we have used the logarithmic scale in the y-axis for the input-size vs time data plotting. For all the figures in this section for the y-axis value, the lower is better.
+
+In figure 1 (a), we can see the time consumption rate for insertion sort is significantly higher than all other sorting algorithms (i.e. merge sort, heapsort, in-place quicksort and modified quicksort). Here, the plotting is being done for randomly ordered inputs. The insertion sorting algorithm takes `O(n^2)` whereas rest of the other algorithm does it in `O(nlogn)` times and this is being reflected in the results of figure 1 (a).
+
+<table>
+  <tr>
+    <td>
+       <img align="left" src="https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_1/plotting/comparison_random.PNG" alt="random_data"/>
+    </td>
+    <td><img align="left" src="https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_1/plotting/comparison_sorted.PNG" alt="sorted_data"/>
+    </td>
+    <td><img align="left" src="https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_1/plotting/comparison_rev_sorted.PNG" alt="reverse_sorted_data"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="middle">Figure 1 (a): Random data</td>
+    <td align="middle">Figure 1 (b): Sorted data</td>
+    <td align="middle">Figure 1 (c): Reverse sorted data</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="middle">Figure 1: Comparing performance of different sorting algorithms</td>
+  </tr>
+</table>
+
+In figure 1 (b), we can see the time consumption rate for in-place quicksort is much higher than all other sorting algorithms (i.e. insertion sort, merge sort, heapsort, and modified quicksort) as this is the worst case for in-place quicksort and it takes `O(n^2)` time. On the other hand, the sorted input data makes the best case scenario for insertion sorting algorithm and it is `O(n)`. For rest of the algorithms (i.e. merge sort, heapsort, and modified quicksort), the running time for this case is `O(nlogn)`. We can see the reflection in figure 1 (b).
+
+In figure 1 (c), we can see the time consumption rate for both insertion and in-place quicksort is much higher than all other sorting algorithms (i.e. merge sort, heapsort, and modified quicksort) as this is the worst case for both of these algorithms and it take `O(n^2)` times. On the other hand, rest of the other algorithms (i.e. merge sort, heapsort, and modified quicksort) take much lower time for this case, having a time complexity of `O(nlogn)`.
+
+### How to Reproduce
 
 We prepared the following three scripts to check the execution time of the sorting algorithms we have implemented in this project.
 ```
