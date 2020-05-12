@@ -1,7 +1,7 @@
 # Fall-2019-ITCS-8114-AlgoDS
 This repository will contains the projects and assignments of course **ITCS 6114/8114: Algorithms and Data Structures**. This course has been taken in Fall 2019 semester, as part of my PhD degree at UNC Charlotte.
 
-### Project 1: Comparison-based Sorting Algorithms
+### [Project 1: Comparison-based Sorting Algorithms](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/tree/master/project_1)
 ---
 Implement the following sorting algorithms and compare them. You can use any programming language (e.g. C/C++, Java, Python, C#). In this project, you can work alone or as team of TWO.
 
@@ -31,7 +31,7 @@ Implement the following sorting algorithms and compare them. You can use any pro
   2. Upload program code for execution. Make sure you provide readme for TA.
 * In addition, hardcopy of report without code to me in the class.
 
-### Project 2: Graph Algorithms (singles-source shortest path and Minimum Spanning Tree)
+### [Project 2: Graph Algorithms (singles-source shortest path and Minimum Spanning Tree)](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/tree/master/project_2)
 ---
 In this project, you will implement two graph algorithms mentioned below. Note: You can work alone or in a team of TWO max.
 
@@ -75,7 +75,7 @@ Here, the first two numbers represent the number of vertices and edges. The lett
 
 ![image for project_2 grading scheme](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/blob/master/project_2/report/P2-Rubrics.png)
 
-### Project 3: Pattern Matching Algorithms
+### [Project 3: Pattern Matching Algorithms](https://github.com/biqar/Fall-2019-ITCS-8114-AlgoDS/tree/master/project_3)
 ---
 Note: You can work alone or in a team of three max.
 
