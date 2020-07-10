@@ -113,3 +113,8 @@ $ ./build/mst < input/sample.in > sample_mst.out
 ## Report
 
 A well-formatted report covering data structures chosen, complexity analysis, results and code is placed in report directory.
+
+## Todo
+* Implement Dial’s Algorithm (Optimized Dijkstra for small range weights) and compare it with the Dijkstra's Algorithm.
+  * Visualization: https://ocw.mit.edu/courses/sloan-school-of-management/15-082j-network-optimization-fall-2010/animations/MIT15_082JF10_av07.pdf
+  * Sample Implementation: https://www.geeksforgeeks.org/dials-algorithm-optimized-dijkstra-for-small-range-weights/
